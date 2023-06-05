@@ -65,11 +65,11 @@ const ClockScreen = () => {
             <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
                 <Text style={styles.h1}>Radio:</Text>
                 <View style={{marginHorizontal:'2%'}}>
-                    <View style={{flexDirection:'row', height:40,width:'100%',borderWidth:1,justifyContent:'space-between'}}>
+                    <View style={{flexDirection:'row', height:40,width:'100%',borderWidth:1,justifyContent:'space-between', borderColor:'white'}}>
                         {/* <VolumeHighComponent style={{height:50, width:50,borderWidth:0}}/> */}
                         <View style={{justifyContent:'center',alignItems:'center'}}><VolumeOffComponent/></View>
                         <View style={styles.volumeSlider}>
-                            <View style={{backgroundColor:'yellow',width:'100%',height:'100%',borderRadius:20}}></View>
+                            <View style={{backgroundColor:'yellow',width:'100%',height:'100%',borderRadius:20, borderWidth:1,borderColor:'white'}}></View>
                         </View>
                         <View style={{justifyContent:'center',alignItems:'center'}}>
                             <VolumeHighComponent/>
@@ -80,7 +80,7 @@ const ClockScreen = () => {
 
 
             <View style={styles.timecontainer}>
-                <Text style={{textTransform:'uppercase', fontSize:20}}>Good {relativeTime} Evan, it is currently:</Text>
+                <Text style={{textTransform:'uppercase', fontSize:20, color:'white'}}>Good {relativeTime} Evan, it is currently:</Text>
                 <View style={styles.timeStamp}>
                     <Text style={styles.h1}>{moment(timedata.datetime).format('h:mm')}</Text>
                     <View style={{justifyContent:'flex-end', borderWidth:1,flexGrow:1,minHeight:50}}>
@@ -114,9 +114,11 @@ const styles = StyleSheet.create({
     },
     h1:{
         fontSize:60,
+        color:'white',
     },
     h3:{
         fontSize:20,
+        color:'white',
     }, 
     volumeSlider:{
         borderRadius:20,

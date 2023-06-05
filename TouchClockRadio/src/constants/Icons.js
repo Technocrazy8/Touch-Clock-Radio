@@ -9,12 +9,12 @@ function SettingsComponent(props){
 
 function VolumeHighComponent(props){
     return(
-        <Ionicons name="volume-high-outline" size={30}/>
+        <Ionicons name="volume-high-outline" size={30} color ={'white'}/>
     );
 }
 function VolumeOffComponent(props){
     return(
-        <Ionicons name="volume-off-outline" size={30}/>
+        <Ionicons name="volume-off-outline" size={30} color={'white'}/>
     );
 }
 
