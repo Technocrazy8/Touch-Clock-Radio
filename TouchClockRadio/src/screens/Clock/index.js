@@ -1,7 +1,9 @@
 import { View,Text, Pressable, StyleSheet } from "react-native";
 import React, { useEffect, useState } from 'react';
+import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
 import axios from 'axios';
 import moment from 'moment';
+import { Ionicons } from "@expo/vector-icons";
 
 
 const ClockScreen = () => {
@@ -58,6 +60,22 @@ const ClockScreen = () => {
     return (
         <View style={styles.container}>
 
+            <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
+                <Text style={styles.h1}>Radio:</Text>
+                <View style={{marginHorizontal:'2%'}}>
+                    <View style={{flexDirection:'row', height:40,width:'100%',borderWidth:1,justifyContent:'space-between'}}>
+                        {/* <VolumeHighComponent style={{height:50, width:50,borderWidth:0}}/> */}
+                        <View style={{justifyContent:'center',alignItems:'center'}}><VolumeOffComponent/></View>
+                        <View style={styles.volumeSlider}>
+                            <View style={{backgroundColor:'yellow',width:'100%',height:'100%',borderRadius:20}}></View>
+                        </View>
+                        <View style={{justifyContent:'center',alignItems:'center'}}>
+                            <VolumeHighComponent/>
+                        </View>
+                    </View>
+                </View>
+            </View>
+
 
             <View style={styles.timecontainer}>
                 <Text style={{textTransform:'uppercase', fontSize:20}}>Good {relativeTime} Evan, it is currently:</Text>
@@ -69,27 +87,19 @@ const ClockScreen = () => {
                     </View>
                 </View>
             </View>
+
         </View>
     )
 }
 const styles = StyleSheet.create({
     container:{
         flex:1,
-        // justifyContent:'flex-end',
-        // marginRight:0,
-
+        justifyContent:'center',
     },
     timecontainer:{
-        // flex:1,
-        position:'absolute',
-        bottom:0,
         borderWidth:1,
         marginBottom:'20%',
-        //full extend
         width:'100%',
-        // marginLeft:'10%',
-        // marginRight:90,
-        // marginStart:'10%',
         paddingHorizontal:'10%',
     },
     timeStamp:{
@@ -102,6 +112,12 @@ const styles = StyleSheet.create({
     h3:{
         fontSize:20,
     }, 
+    volumeSlider:{
+        borderRadius:20,
+        width:'80%',
+        borderWidth:1,
+    },
+
 });
 
 export default ClockScreen;
