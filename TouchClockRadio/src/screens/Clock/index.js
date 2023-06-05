@@ -3,6 +3,7 @@ import React, { useEffect, useState } from 'react';
 import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
 import axios from 'axios';
 import moment from 'moment';
+import { useThemeScheme } from "../../hooks/useThemeScheme";
 import { Ionicons } from "@expo/vector-icons";
 
 
@@ -58,12 +59,14 @@ const ClockScreen = () => {
         return null;
     }
 
+    const {colors} = useThemeScheme();
+
     return (
         <View style={styles.container}>
             <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
 
             <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
-                <Text style={styles.h1}>Radio:</Text>
+                <Text style={[styles.h1,{color:colors.text}]}>Radio:</Text>
                 <View style={{marginHorizontal:'2%'}}>
                     <View style={{flexDirection:'row', height:40,width:'100%',borderWidth:1,justifyContent:'space-between', borderColor:'white'}}>
                         {/* <VolumeHighComponent style={{height:50, width:50,borderWidth:0}}/> */}
@@ -80,12 +83,12 @@ const ClockScreen = () => {
 
 
             <View style={styles.timecontainer}>
-                <Text style={{textTransform:'uppercase', fontSize:20, color:'white'}}>Good {relativeTime} Evan, it is currently:</Text>
+                <Text style={{textTransform:'uppercase', fontSize:20, color:colors.text}}>Good {relativeTime} Evan, it is currently:</Text>
                 <View style={styles.timeStamp}>
-                    <Text style={styles.h1}>{moment(timedata.datetime).format('h:mm')}</Text>
+                    <Text style={[styles.h1,{color:colors.text}]}>{moment(timedata.datetime).format('h:mm')}</Text>
                     <View style={{justifyContent:'flex-end', borderWidth:1,flexGrow:1,minHeight:50}}>
-                        <Text style={styles.h3}>{timedata.abbreviation}</Text>
-                        <Text style={styles.h3}>{moment(timedata.datetime).format('A')}</Text>
+                        <Text style={[styles.h3,{color:colors.text}]}>{timedata.abbreviation}</Text>
+                        <Text style={[styles.h3,{color:colors.text}]}>{moment(timedata.datetime).format('A')}</Text>
                     </View>
                 </View>
             </View>
@@ -114,16 +117,17 @@ const styles = StyleSheet.create({
     },
     h1:{
         fontSize:60,
-        color:'white',
+        // color:'white',
     },
     h3:{
         fontSize:20,
-        color:'white',
+        // color:'white',
     }, 
     volumeSlider:{
         borderRadius:20,
         width:'80%',
         borderWidth:1,
+        backgroundColor:'grey',
     },
 
 });
