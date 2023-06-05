@@ -2,7 +2,7 @@ import * as SplashScreen from 'expo-splash-screen';
 import { DefaultTheme, NavigationContainer } from '@react-navigation/native';
 import { NavigationTabs, TopTabs } from './NavigationTabs';
 
-SplashScreen.preventAutoHideAsync();
+// SplashScreen.preventAutoHideAsync();
 
 export const TopNav = () => {
 

@@ -32,6 +32,7 @@ export const TopTabs = () => {
                     <TabBarIcon {...props} name="time-outline"/>
                 ),
                 headerShown: false,
+                tabBarLabel: 'Clock',
             }}/>
             <Tab.Screen name="Settings"
             component={SettingScreen}
@@ -41,6 +42,7 @@ export const TopTabs = () => {
                     <TabBarIcon {...props} name="settings-outline"/>
                 ),
                 headerShown: false,
+                tabBarLabel: 'Settings',
             }}/>
             
         </Tab.Navigator>
