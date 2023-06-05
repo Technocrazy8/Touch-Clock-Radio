@@ -1,4 +1,4 @@
-import { View,Text, Pressable, StyleSheet } from "react-native";
+import { View,Text, Pressable, StyleSheet, ImageBackground } from "react-native";
 import React, { useEffect, useState } from 'react';
 import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
 import axios from 'axios';
@@ -10,6 +10,7 @@ const ClockScreen = () => {
     const [timedata, setTimeData] = useState(null);
     const [relativeTime, setRelativeTime] = useState(null);
     const [timeloaded, setTimeloaded] = useState(false);
+    
 
 
     useEffect(() => {
@@ -59,6 +60,7 @@ const ClockScreen = () => {
 
     return (
         <View style={styles.container}>
+            <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
 
             <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
                 <Text style={styles.h1}>Radio:</Text>
@@ -88,12 +90,16 @@ const ClockScreen = () => {
                 </View>
             </View>
 
+            </ImageBackground>
         </View>
     )
 }
 const styles = StyleSheet.create({
     container:{
         flex:1,
+        },
+    image:{
+        ...StyleSheet.absoluteFillObject,
         justifyContent:'center',
     },
     timecontainer:{
