@@ -1,6 +1,7 @@
-import { View,Text, Pressable, StyleSheet, ImageBackground } from "react-native";
+import { View,Text, Pressable, StyleSheet, ImageBackground, Slider } from "react-native";
 import React, { useEffect, useState } from 'react';
 import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
+import CustomSlider from "../../components/Clock/Slider";
 import axios from 'axios';
 import moment from 'moment';
 import { useThemeScheme } from "../../hooks/useThemeScheme";
@@ -8,6 +9,7 @@ import { Ionicons } from "@expo/vector-icons";
 
 
 const ClockScreen = () => {
+    const {colors} = useThemeScheme();
     const [timedata, setTimeData] = useState(null);
     const [relativeTime, setRelativeTime] = useState(null);
     const [timeloaded, setTimeloaded] = useState(false);
@@ -59,11 +61,12 @@ const ClockScreen = () => {
         return null;
     }
 
-    const {colors} = useThemeScheme();
+    
 
     return (
-        <View style={styles.container}>
-            <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
+        // <View style={styles.container}>
+        <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
+            
 
             <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
                 <Text style={[styles.h1,{color:colors.text}]}>Radio:</Text>
@@ -72,7 +75,7 @@ const ClockScreen = () => {
                         {/* <VolumeHighComponent style={{height:50, width:50,borderWidth:0}}/> */}
                         <View style={{justifyContent:'center',alignItems:'center'}}><VolumeOffComponent/></View>
                         <View style={styles.volumeSlider}>
-                            <View style={{backgroundColor:'yellow',width:'100%',height:'100%',borderRadius:20, borderWidth:1,borderColor:'white'}}></View>
+                            <View style={{width:'100%',height:'100%', backgroundColor:'orange', borderRadius:20,borderWidth:1,borderColor:'white'}}></View>
                         </View>
                         <View style={{justifyContent:'center',alignItems:'center'}}>
                             <VolumeHighComponent/>
@@ -93,8 +96,11 @@ const ClockScreen = () => {
                 </View>
             </View>
 
-            </ImageBackground>
-        </View>
+        <CustomSlider/>
+        <Slider style={{}}/>
+
+        </ImageBackground>
+        // </View>
     )
 }
 const styles = StyleSheet.create({
