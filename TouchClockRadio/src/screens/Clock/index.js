@@ -1,4 +1,5 @@
-import { View,Text, Pressable, StyleSheet, ImageBackground, Slider } from "react-native";
+import { View,Text, Pressable, StyleSheet, ImageBackground, Slider} from "react-native";
+// import 
 import React, { useEffect, useState } from 'react';
 import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
 import CustomSlider from "../../components/Clock/Slider";
@@ -6,7 +7,8 @@ import axios from 'axios';
 import moment from 'moment';
 import { useThemeScheme } from "../../hooks/useThemeScheme";
 import { Ionicons } from "@expo/vector-icons";
-
+import { WebView } from 'react-native-webview';
+const test = require('../../components/Clock/test.html');
 
 const ClockScreen = () => {
     const {colors} = useThemeScheme();
@@ -57,6 +59,8 @@ const ClockScreen = () => {
         return () => clearInterval(intervalID);
       }, []);
 
+      
+
     if(timeloaded==false){
         return null;
     }
@@ -65,8 +69,11 @@ const ClockScreen = () => {
 
     return (
         // <View style={styles.container}>
+        
         <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
-            
+            <View style={{width:'100%', height:200, justifyContent:'center'}}>
+            <WebView source={test} /> 
+            </View>
 
             <View style={{width:'100%',borderWidth:1, marginBottom:'5%'}}>
                 <Text style={[styles.h1,{color:colors.text}]}>Radio:</Text>
