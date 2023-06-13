@@ -11,7 +11,6 @@ const TabBarIcon = ({color,name})=>(
     <Ionicons name={name} size={25} color={color}/>
 );
 
-{/* <ion-icon name="settings-outline"></ion-icon> */}
 export const TopTabs = () => {
     const { colors } = useThemeScheme();
 
@@ -22,6 +21,7 @@ export const TopTabs = () => {
         screenOptions={{
             tabBarInactiveTintColor: 'grey',
             tabBarActiveTintColor: colors.primary,
+            swipeEnabled: false,
         }}
         >
             <Tab.Screen name="Clock" 

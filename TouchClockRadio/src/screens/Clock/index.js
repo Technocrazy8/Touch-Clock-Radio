@@ -7,6 +7,7 @@ import moment from 'moment';
 import { useThemeScheme } from "../../hooks/useThemeScheme";
 import { Ionicons } from "@expo/vector-icons";
 import { WebView } from 'react-native-webview';
+
 const test = require('../../components/Clock/test.html');
 
 
@@ -130,8 +131,6 @@ const ClockScreen = () => {
                     </View>
                 </View>
             </View>
-
-
 
         </ImageBackground>
     )
