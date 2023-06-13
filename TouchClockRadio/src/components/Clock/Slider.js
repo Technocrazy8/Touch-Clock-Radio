@@ -61,6 +61,7 @@ const CustomSlider = ({ minimumValue, maximumValue, onValueChange }) => {
             position: 'absolute',
             top: -5,
             left: thumbPosition,
+            animated: true,
           }}
         />
       </TouchableOpacity>
