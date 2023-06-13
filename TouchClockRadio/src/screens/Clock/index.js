@@ -15,7 +15,7 @@ const ClockScreen = () => {
     const [timedata, setTimeData] = useState(null);
     const [relativeTime, setRelativeTime] = useState(null);
     const [timeloaded, setTimeloaded] = useState(false);
-    
+    const [sliderActive, setSliderActive] = useState(false);
 
 
     useEffect(() => {
@@ -59,7 +59,15 @@ const ClockScreen = () => {
         return () => clearInterval(intervalID);
       }, []);
 
-      
+    const handleSliderStart = () => {
+        console.log('slider start');
+        setSliderActive(true);
+    };
+    
+    const handleSliderEnd = () => {
+        console.log('slider end');
+       setSliderActive(false);
+    };
 
     if(timeloaded==false){
         return null;
@@ -100,6 +108,8 @@ const ClockScreen = () => {
                                         borderTopLeftRadius: 0,
                                         borderBottomLeftRadius: 0,
                                     }}
+                                    onSlidingStart={handleSliderStart}
+                                    onSlidingComplete={handleSliderEnd}
                                 />
                         </View>
                         <View style={{justifyContent:'center',alignItems:'center'}}>
