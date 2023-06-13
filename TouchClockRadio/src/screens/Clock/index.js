@@ -1,6 +1,5 @@
 import { View,Text, Pressable, StyleSheet, ImageBackground} from "react-native";
 import Slider from 'react-native-slider';
-import { PanGestureHandler } from 'react-native-gesture-handler';
 import React, { useEffect, useState } from 'react';
 import {VolumeHighComponent, VolumeOffComponent}from '../../constants/Icons';
 import axios from 'axios';
@@ -68,9 +67,7 @@ const ClockScreen = () => {
 
     
 
-    return (
-        // <View style={styles.container}>
-        
+    return (        
         <ImageBackground source={require('../../../assets/background.jpg')} style={styles.image}>
             <View style={{width:'100%', height:200, justifyContent:'center'}}>
             <WebView source={test} style={{margin:10,justifyContent:'center',alignItems:'center'}}/> 
@@ -80,15 +77,13 @@ const ClockScreen = () => {
                 <Text style={[styles.h1,{color:colors.text}]}>Radio:</Text>
                 <View style={{marginHorizontal:'2%'}}>
                     <View style={{flexDirection:'row', height:40,width:'100%',borderWidth:1,justifyContent:'space-between', borderColor:'white'}}>
-                        {/* <VolumeHighComponent style={{height:50, width:50,borderWidth:0}}/> */}
                         <View style={{justifyContent:'center',alignItems:'center'}}><VolumeOffComponent/></View>
                         <View style={styles.volumeSlider}>
-                            {/* <PanGestureHandler> */}
                                 <Slider
                                     animateTransitions
                                     minimumTrackTintColor="#e6a954"
-                                    // thumbStyle={customStyles6.thumb}
                                     thumbTintColor='#e6a954'
+                                    tapToSeek={true}
                                     trackStyle={{                    
                                         backgroundColor:'grey',
                                         borderRadius: 20,
@@ -106,8 +101,6 @@ const ClockScreen = () => {
                                         borderBottomLeftRadius: 0,
                                     }}
                                 />
-                            {/* </PanGestureHandler> */}
-                            {/* <View style={{width:'100%',height:'100%', backgroundColor:'orange', borderRadius:20,borderWidth:1,borderColor:'white'}}></View> */}
                         </View>
                         <View style={{justifyContent:'center',alignItems:'center'}}>
                             <VolumeHighComponent/>
@@ -128,11 +121,9 @@ const ClockScreen = () => {
                 </View>
             </View>
 
-        {/* <CustomSlider/> */}
-        {/* <Slider style={{}}/> */}
+
 
         </ImageBackground>
-        // </View>
     )
 }
 const styles = StyleSheet.create({
@@ -155,11 +146,9 @@ const styles = StyleSheet.create({
     },
     h1:{
         fontSize:60,
-        // color:'white',
     },
     h3:{
         fontSize:20,
-        // color:'white',
     }, 
     volumeSlider:{
         borderRadius:20,
@@ -168,7 +157,6 @@ const styles = StyleSheet.create({
         backgroundColor:'grey',
         justifyContent:'center',
     },
-
 });
 
 export default ClockScreen;
