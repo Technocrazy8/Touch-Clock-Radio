@@ -101,9 +101,6 @@ const ClockScreen = () => {
                                     thumbStyle={{
                                         height: 35,
                                         width: 35,
-                                        //right border radius
-                                        // borderRadius: 20,
-                                        //left border radius
                                         borderTopRightRadius: 20,
                                         borderBottomRightRadius: 20,
                                         borderTopLeftRadius: 0,
@@ -111,6 +108,11 @@ const ClockScreen = () => {
                                     }}
                                     onSlidingStart={handleSliderStart}
                                     onSlidingComplete={handleSliderEnd}
+                                    step={.05}
+                                    lowerLimit={0}
+                                    upperLimit={1}
+                                    minimumValue={0}
+                                    maximumValue={1}
                                 />
                         </View>
                         <View style={{justifyContent:'center',alignItems:'center'}}>
